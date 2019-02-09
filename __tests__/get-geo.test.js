@@ -1,19 +1,21 @@
-import api from '../src';
-
-const { getService } = api;
+import HttpClient from '../src';
+/*
+const mockData = {
+  '': 'Moscow',
+  '114.22.33.13': 'Chiyoda',
+};
+*/
 
 test('get-geo self', async () => {
-  const geoLocator = getService({
+  const geoLocator = await new HttpClient('', {
     get: () => ({ data: { city: 'Moscow' } }),
   });
-  const getLocation = await geoLocator();
-  expect(getLocation()).toBe('Moscow');
+  expect(geoLocator.getLocation()).toBe('Moscow');
 });
 
 test('get-geo 114.22.33.13', async () => {
-  const geoLocator = getService({
+  const geoLocator = await new HttpClient('114.22.33.13', {
     get: () => ({ data: { city: 'Chiyoda' } }),
   });
-  const getLocation = await geoLocator('114.22.33.13');
-  expect(getLocation()).toBe('Chiyoda');
+  expect(geoLocator.getLocation()).toBe('Chiyoda');
 });
