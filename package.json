@@ -19,18 +19,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hexlet-boilerplates/nodejs-package.git"
+    "url": "git+https://github.com/DK-2013/workshop-OOP.git"
   },
-  "author": "Kirill Mokevnin",
+  "author": "Dietmar",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hexlet-boilerplates/nodejs-package/issues"
-  },
   "jest": {
     "testEnvironment": "node"
   },
-  "homepage": "https://github.com/hexlet-boilerplates/nodejs-package#readme",
+  "homepage": "https://github.com/DK-2013/workshop-OOP#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "gulp": "^4.0.0",
     "source-map-support": "^0.5.10"
   },
