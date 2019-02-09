@@ -1,21 +1,22 @@
-import HttpClient from '../src';
+import GeoIp from '../src';
 /*
 const mockData = {
   '': 'Moscow',
   '114.22.33.13': 'Chiyoda',
 };
 */
-
 test('get-geo self', async () => {
-  const geoLocator = await new HttpClient('', {
+  const geoIp = new GeoIp({
     get: () => ({ data: { city: 'Moscow' } }),
   });
-  expect(geoLocator.getLocation()).toBe('Moscow');
+  const geoInfo = await geoIp.getLocation();
+  expect(geoInfo.get('city')).toBe('Moscow');
 });
 
 test('get-geo 114.22.33.13', async () => {
-  const geoLocator = await new HttpClient('114.22.33.13', {
+  const geoIp = new GeoIp({
     get: () => ({ data: { city: 'Chiyoda' } }),
   });
-  expect(geoLocator.getLocation()).toBe('Chiyoda');
+  const geoInfo = await geoIp.getLocation('114.22.33.13');
+  expect(geoInfo.get('city')).toBe('Chiyoda');
 });

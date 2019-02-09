@@ -1,4 +1,4 @@
 import 'source-map-support/register';
-import HttpClient from './get-geo';
+import GeoIp from './get-geo';
 
-export default HttpClient;
+export default GeoIp;
