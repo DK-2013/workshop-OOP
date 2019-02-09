@@ -8,7 +8,7 @@ class GeoIp {
   }
 
   async getLocation(ip = '') {
-    const { data } = await this.client.get(`${source()}${ip}`) || {};
+    const { data } = await this.client.get(`${source()}${ip}`);// todo error handle
     return { get: prop => data[prop] };
   }
 }

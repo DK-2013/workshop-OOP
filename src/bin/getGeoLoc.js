@@ -1,16 +1,19 @@
 #!/usr/bin/env node
-import { ArgumentParser } from 'argparse';
-import getGeoLoc from '..';
+import GeoIp from '..';
+import program from 'commander';
+import { version } from '../../package.json';
 
-
-const parser = new ArgumentParser({
-  version: '0.0.1',
-  addHelp: true,
-  description: 'Geo locator by ip',
-});
-
-parser.addArgument(
-  ['-ip', '--ip'],
-  { help: 'ip' },
-);
-console.log(getGeoLoc(Number(process.argv[process.argv.length - 1])));
+program // todo
+  .version(version)
+  .usage('get-geo [ip] [prop]')
+  .arguments('[ip][prop]')
+  .action(async (ip, prop = 'city') => {
+    const geo = new GeoIp();
+    try {
+      const geoInfo = await geo.getLocation(ip);
+      console.log(geoInfo.get(prop));
+    } catch (e) {
+      console.log(e.message);
+    }
+  })
+  .parse(process.argv);
