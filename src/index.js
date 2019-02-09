@@ -1,4 +1,4 @@
 import 'source-map-support/register';
-import getGeoLoc from './get-geo';
+import api from './get-geo';
 
-export default getGeoLoc;
+export default api;
