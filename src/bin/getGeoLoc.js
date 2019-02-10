@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 import GeoIp from '..';
 import program from 'commander';
-import { version } from '../../package.json';
+// import { version } from '../../package.json';
 
-program // todo
-  .version(version)
-  .usage('get-geo [ip] [prop]')
-  .arguments('[ip][prop]')
-  .action(async (ip, prop = 'city') => {
+program
+  // .version(version)
+  .usage('geoip [ip] [prop]')
+  .arguments('"[ip]","[prop]"')
+  .action(async (ip, prop) => {
     const geo = new GeoIp();
     try {
-      const geoInfo = await geo.getLocation(ip);
-      console.log(geoInfo.get(prop));
+      const ipAddr = typeof ip === 'string' ? ip : '';// fixme: geoip country
+      const property = typeof prop === 'string' ? prop : 'city';// fixme
+      const geoInfo = await geo.getLocation(ipAddr);
+      console.log(geoInfo.get(property));
     } catch (e) {
       console.log(e.message);
     }
