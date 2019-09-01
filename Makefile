@@ -1,7 +1,7 @@
 install: install-deps install-flow-typed
 
 run:
-	npx babel-node -- 'src/bin/hexlet.js' 10
+	npx babel-node -- 'src/bin/getGeoLoc.js' 168.8.8.8
 
 install-deps:
 	npm install

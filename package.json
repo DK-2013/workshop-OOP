@@ -28,9 +28,9 @@
   },
   "homepage": "https://github.com/DK-2013/workshop-OOP#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "commander": "^2.19.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "source-map-support": "^0.5.10"
   },
   "devDependencies": {
